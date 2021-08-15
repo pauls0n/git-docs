@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Git & GitHub Documentation</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,400;0,600;0,700;1,900&family=Ubuntu+Mono&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <nav id="navbar">
+      <header class="nav-header">
+        <h1>Git & GitHub Documentation</h1>
+      </header>
+      <ul class="nav-menu">
+        <li><a href="#What_is_Git?" class="nav-link">What is Git?</a></li>
+        <li><a href="#What_is_GitHub?" class="nav-link">What is GitHub?</a></li>
+        <li><a href="#Prerequisites" class="nav-link">Prerequisites</a></li>
+        <li><a href="#Installing_Git" class="nav-link">Installing Git</a></li>
+        <li>
+          <a href="#Configure_Git_and_GitHub" class="nav-link"
+            >Configure Git and GitHub</a
+          >
+        </li>
+        <li>
+          <a href="#Creating_Your_First_Repository" class="nav-link"
+            >Creating Your First Repository</a
+          >
+        </li>
+        <li>
+          <a href="#Cloning_Your_Repository" class="nav-link"
+            >Cloning Your Repository</a
+          >
+        </li>
+        <li>
+          <a href="#Use_the_Git_Workflow" class="nav-link"
+            >Use the Git Workflow</a
+          >
+        </li>
+        <li>
+          <a href="#Publishing_Your_Changes_to_GitHub" class="nav-link"
+            >Publishing Your Changes to GitHub</a
+          >
+        </li>
+        <li><a href="#References" class="nav-link">References</a></li>
+      </ul>
+    </nav>
+
+    <main id="main-doc">
+      <section class="main-section" id="What_is_Git?">
+        <header class="doc-header">
+          <h2>What is Git?</h2>
+        </header>
+        <p class="doc-p">
+          Git is a version control system. A version control system allows you
+          to record changes made to a file or a folder over time. This lets us
+          see the timeline of a project and literally revert to an older version
+          of the project.
+        </p>
+      </section>
+      <section class="main-section" id="What_is_GitHub?">
+        <header class="doc-header">
+          <h2>What is GitHub?</h2>
+        </header>
+        <p class="doc-p">
+          GitHub is a platform that takes Git to a next level. Any project that
+          utilises the power of Git can make their repository (Git initialised
+          project) remote (online), allowing developers from around the world to
+          see your code and make their own contributions.
+        </p>
+      </section>
+      <section class="main-section" id="Prerequisites">
+        <header class="doc-header">
+          <h2>Prerequisites</h2>
+        </header>
+        <ul class="doc-li">
+          <li>Basic knowledge of command-line-interface (CLI)</li>
+        </ul>
+      </section>
+      <section class="main-section" id="Installing_Git">
+        <header class="doc-header">
+          <h2>Installing Git</h2>
+        </header>
+        <p class="doc-p">
+          First, you need to install Git in your computer. For windows, you can
+          download
+          <a href="https://gitforwindows.org/" target="_blank" class="doc-a"
+            >Git for Windows</a
+          >.
+        </p>
+        <p class="doc-p">The following steps are applicable to Linux users:</p>
+        <ol class="doc-li">
+          <li>
+            Install Git using APT:<!-- prettier-ignore -->
+            <ul class="doc-sub-li">
+              <li><pre class="doc-pre"><code class="doc-code"><span class="program">sudo</span> <span class="action">add-apt-repository</span> <span class="destination">ppa:git-core/ppa</span></code></pre></li>
+              <li><pre class="doc-pre"><code class="doc-code"><span class="program">sudo</span> <span class="program">apt</span> <span class="action">update</span></code></pre></li>
+              <li><pre class="doc-pre"><code class="doc-code"><span class="program">sudo</span> <span class="program">apt</span> <span class="action">install</span> <span class="destination">git</span></code></pre></li>
+            </ul>
+          </li>
+          <li>
+            Verify the Git you installed has version atleast 2.28:<!-- prettier-ignore -->
+            <ul class="doc-sub-li">
+              <li><pre class="doc-pre"><code class="doc-code"><span class="program">git</span> <span class="action">--version</span></code></pre></li>
+            </ul>
+          </li>
+        </ol>
+      </section>
+      <section class="main-section" id="Configure_Git_and_GitHub">
+        <header class="doc-header">
+          <h2>Configure Git and GitHub</h2>
+        </header>
+        <h3 class="doc-h3">Setup Git</h3>
+        <ol class="doc-li">
+          <li>
+            Add your name and email address:<!-- prettier-ignore -->
+            <ul class="doc-sub-li">
+              <li><pre class="doc-pre"><code class="doc-code"><span class="program">git</span> <span class="action">config</span> --global <span class="destination">user.name</span> "&lt;Your name&gt;"</code></pre></li>
+              <li><pre class="doc-pre"><code class="doc-code"><span class="program">git</span> <span class="action">config</span> --global <span class="destination">user.email</span> "&lt;youremailaddress&gt;"</code></pre></li></ul>
+          </li>
+          <li>
+            Change the default branch from master to main:<!-- prettier-ignore -->
+            <ul class="doc-sub-li">
+              <li><pre class="doc-pre"><code class="doc-code"><span class="program">git</span> <span class="action">config</span> --global <span class="destination">init.defaultBranch</span> main</code></pre></li>
+            </ul>
+          </li>
+          <li>
+            Enable colourful output for Git:<!-- prettier-ignore -->
+            <ul class="doc-sub-li">
+              <li><pre class="doc-pre"><code class="doc-code"><span class="program">git</span> <span class="action">config</span> --global <span class="destination">color.ui</span> auto</code></pre></li>
+            </ul>
+          </li>
+          <li>
+            Verify the details you entered:<!-- prettier-ignore -->
+            <ul class="doc-sub-li">
+              <li><pre class="doc-pre"><code class="doc-code"><span class="program">git</span> <span class="action">config</span> --get <span class="destination">user.name</span></code></pre></li>
+              <li><pre class="doc-pre"><code class="doc-code"><span class="program">git</span> <span class="action">config</span> --get <span class="destination">user.email</span></code></pre></li>
+            </ul>
+          </li>
+        </ol>
+        <h3 class="doc-h3">Create a GitHub account</h3>
+        <p class="doc-p">Go to GitHub.com and create an account for free.</p>
+        <h3 class="doc-h3">Create an SSH Key</h3>
+        <a href="https://github.com/" target="_blank" class="doc-a">
+          <p class="doc-p">SSH key is required to connect Git and GitHub.</p>
+        </a>
+        <ul class="doc-li">
+          <li>
+            Check if you have an SSH key already:<!-- prettier-ignore -->
+            <ul class="doc-sub-li">
+              <li><pre class="doc-pre"><code class="doc-code"><span class="program">ls</span> <span class="destination">~/.ssh/id_rsa.pu</span></code></pre></li>
+            </ul>
+          </li>
+          <li>
+            If a message appears in the console containing the text
+            <samp class="doc-samp-inline"> “No such file or directory”</samp>,
+            then you do not yet have an SSH key, and you will need to create one
+            with this command:<!-- prettier-ignore -->
+            <ul class="doc-sub-li">
+              <li><pre class="doc-pre"><code class="doc-code"><span class="program">ssh-keygen</span> -C <span class="destination">&lt;youremailaddress&gt;</span></code></pre></li>
+            </ul>
+          </li>
+          <li>
+            If no message has appeared in the console output, you already have a
+            key and can proceed to step “Link Your SSH Key with GitHub”
+          </li>
+        </ul>
+        <h3 class="doc-h3">Link Your SSH Key with GitHub</h3>
+        <p class="doc-p">
+          The next step is to Link Your SSH Key with GitHub. Log in to your
+          GitHub account, click on your profile picture in the top right corner.
+          Then, click on Settings in the drop-down menu.
+        </p>
+        <p class="doc-p">
+          Next, on the left-hand side, click SSH and GPG keys. Then, click the
+          green button in the top right corner that says New SSH Key. Name your
+          key something that is descriptive enough for you to remember where it
+          came from. Leave this window open while you do the next steps.
+        </p>
+        <p class="doc-p">
+          Now you need to copy your public SSH key. To do this, execute this
+          command:
+        </p>
+        <pre
+          class="doc-pre"
+        ><!-- prettier-ignore --><code class="doc-code"><span class="program">cat</span> <span class="destination">~/.ssh/id_rsa.pub</span></code></pre>
+        <p class="doc-p">
+          Now, go back to GitHub in your browser window and paste the key you
+          copied into the key field. Then, click Add SSH key.
+        </p>
+        <h3 class="doc-h3">Testing your key</h3>
+        <p class="doc-p">Use this command and type yes:</p>
+        <pre
+          class="doc-pre"
+        ><!-- prettier-ignore --><code class="doc-code"><span class="program">ssh</span> -T <span class="destination">git@github.com</span></code></pre>
+        <p class="doc-p">
+          If you did everything correctly, you will see this message:
+        </p>
+        <blockquote class="doc-blqt">
+          <samp class="doc-samp"
+            >Hi &lt;username&gt;! You’ve successfully authenticated, but GitHub
+            does not provide shell access.</samp
+          >
+        </blockquote>
+      </section>
+      <section class="main-section" id="Creating_Your_First_Repository">
+        <header class="doc-header">
+          <h2>Creating Your First Repository</h2>
+        </header>
+        <p class="doc-p">
+          A repository is a project that has Git initialised. You can initialise
+          Git in any project using this command:
+        </p>
+        <pre
+          class="doc-pre"
+        ><!-- prettier-ignore --><code class="doc-code"><span class="program">git</span> <span class="action">init</span></code></pre>
+        <p class="doc-p">
+          However, this repository is only visible to you. To make your
+          repository visible to the internet and to collaborate with other
+          developers, you need a remote repository. You can use GitHub for this.
+        </p>
+        <p class="doc-p">
+          Get started by logging into your GitHub account and clicking on the +
+          icon at the top and then clicking “New Repository”. Give it any name
+          you like.
+        </p>
+      </section>
+      <section class="main-section" id="Cloning_Your_Repository">
+        <header class="doc-header">
+          <h2>Cloning Your Repository</h2>
+        </header>
+        <p class="doc-p">
+          To work on your repository, you have to clone it into your local
+          machine. Use this command:
+        </p>
+        <pre
+          class="doc-pre"
+        ><!-- prettier-ignore --><code class="doc-code"><span class="program">git</span> <span class="action">clone</span> <span class="destination">&lt;SSH URL&gt;</span></code></pre>
+        <p class="doc-p">
+          This will clone the repository into the current working directory. Now
+          you can start working on your project.
+        </p>
+      </section>
+      <section class="main-section" id="Use_the_Git_Workflow">
+        <header class="doc-header">
+          <h2>Use the Git Workflow</h2>
+        </header>
+        <ol class="doc-li">
+          <li>
+            Cd into the cloned repository and create a file you like:<!-- prettier-ignore -->
+            <ul class="doc-sub-li">
+              <li><pre class="doc-pre"><code class="doc-code"><span class="program">touch</span> <span class="destination">&lt;filename&gt;</span></code></pre></li>
+            </ul>
+          </li>
+          <li>
+            Now let’s check the status of the repository:<!-- prettier-ignore -->
+            <ul class="doc-sub-li">
+              <li><pre class="doc-pre"><code class="doc-code"><span class="program">git</span> <span class="action">status</span></code></pre></li>
+            </ul>
+          </li>
+          <li>
+            We can see that the file that was just created is not staged. To
+            stage it, use this command:<!-- prettier-ignore -->
+            <ul class="doc-sub-li">
+              <li><pre class="doc-pre"><code class="doc-code"><span class="program">git</span> <span class="action">add</span> <span class="destination">&lt;filename&gt;</span></code></pre></li>
+            </ul>
+          </li>
+          <li>
+            Now if we check git status again, we can see that the file has been
+            added to the staging area. Now, to commit the changes, type:<!-- prettier-ignore -->
+            <ul class="doc-sub-li">
+              <li><pre class="doc-pre"><code class="doc-code"><span class="program">git</span> <span class="action">commit</span> -m <span class="destination">"&lt;Commit message&gt;"</span></code></pre></li>
+            </ul>
+          </li>
+        </ol>
+        <p class="doc-p">You can use this workflow to build your project.</p>
+      </section>
+      <section class="main-section" id="Publishing_Your_Changes_to_GitHub">
+        <header class="doc-header">
+          <h2>Publishing Your Changes to GitHub</h2>
+        </header>
+        <p class="doc-p">
+          Even though you staged and commited the changes in your local
+          repository, your remote repository will not become upto date, unless
+          you push the changes to GitHub.
+        </p>
+        <p class="doc-p">Use this command to push the changes:</p>
+        <pre
+          class="doc-pre"
+        ><!-- prettier-ignore --><code class="doc-code"><span class="program">git</span> <span class="action">push</span> <span class="destination">origin</span> <span class="destination">&lt;branch-name&gt;</span></code></pre>
+      </section>
+      <section class="main-section" id="References">
+        <header class="doc-header">
+          <h2>References</h2>
+        </header>
+        <ul class="doc-li">
+          <li>
+            <a
+              href="https://www.theodinproject.com/paths/foundations/courses/foundations/lessons/setting-up-git"
+              target="_blank"
+              class="doc-a"
+              >https://www.theodinproject.com/paths/foundations/courses/foundations/lessons/setting-up-git</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://www.theodinproject.com/paths/foundations/courses/foundations/lessons/git-basics"
+              target="_blank"
+              class="doc-a"
+              >https://www.theodinproject.com/paths/foundations/courses/foundations/lessons/git-basics</a
+            >
+          </li>
+        </ul>
+      </section>
+    </main>
+
+    <footer>
+      <p>
+        Made by
+        <a href="https://github.com/pauls0n" target="_blank">@pauls0n</a>
+      </p>
+    </footer>
+
+    <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+  </body>
+</html>
